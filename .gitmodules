@@ -1,3 +1,6 @@
 [submodule "vim/pack/plugins/start/syntastic"]
 	path = vim/pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic
+[submodule "vim/pack/plugins/start/tcomment"]
+	path = vim/pack/plugins/start/tcomment
+	url = https://github.com/tomtom/tcomment_vim
