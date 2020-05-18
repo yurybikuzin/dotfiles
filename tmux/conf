@@ -1,0 +1,139 @@
+# https://github.com/claytron/dotfiles/blob/master/.tmux.conf
+
+# My tmux config uses folds in vim.
+#
+# zR    open all folds
+# zM    close all folds
+# za    toggle fold at cursor position
+# zj    move down to start of next fold
+# zk    move up to end of previous fold
+
+# General tmux settings                                         {{{1
+# ------------------------------------------------------------------
+
+# https://www.linux.org.ru/forum/general/13617115
+set -g default-terminal screen-256color
+
+# If running inside tmux ($TMUX is set), then change the status line to red
+%if #{TMUX}
+set -g status-bg red
+%endif
+
+# https://unix.stackexchange.com/questions/52512/bad-utf8-display-with-tmux
+# set -g utf8 on
+
+# https://github.com/claytron/dotfiles/blob/master/.tmux.conf
+setw -gq utf8 on
+
+# Enable RGB colour if running in xterm(1)
+# set-option -sa terminal-overrides ",xterm*:Tc"
+
+# Change the default $TERM to tmux-256color
+# set -g default-terminal "tmux-256color"
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+
+# No bells at all
+set -g bell-action none
+
+# Keep windows around after they exit
+set -g remain-on-exit on
+
+# Change the prefix key to C-a
+set -g prefix C-a
+unbind C-b
+# Allow for C-a C-a to send it to the application
+bind C-a send-prefix
+
+# Set the proper terminal type
+set -g default-terminal "tmux"
+
+# Set the delay so that it doesn't interfere with applications like
+# vim
+set -sg escape-time 0
+
+# Turn the mouse on, but without copy mode dragging
+set -g mouse on
+unbind -n MouseDrag1Pane
+unbind -Tcopy-mode MouseDrag1Pane
+
+# Some extra key bindings to select higher numbered windows
+bind F1 selectw -t:10
+bind F2 selectw -t:11
+bind F3 selectw -t:12
+bind F4 selectw -t:13
+bind F5 selectw -t:14
+bind F6 selectw -t:15
+bind F7 selectw -t:16
+bind F8 selectw -t:17
+bind F9 selectw -t:18
+bind F10 selectw -t:19
+bind F11 selectw -t:20
+bind F12 selectw -t:21
+
+# A key to toggle between smallest and largest sizes if a window is visible in
+# multiple places
+bind F set -w window-size
+
+# Keys to toggle monitoring activity in a window and the synchronize-panes option
+bind m set monitor-activity
+bind y set synchronize-panes\; display 'synchronize-panes #{?synchronize-panes,on,off}'
+
+# use vi key bindings
+set-window-option -g mode-keys vi
+
+# copy to clipboard: https://sanctum.geek.nz/arabesque/vi-mode-in-tmux/
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # https://stackoverflow.com/a/45380960, see comment of blurrcat; run `brew install reattach-to-user-namespace` first
+
+# Easier window controls                                        {{{2
+# ------------------------------------------------------------------
+
+# Window splits (also see 1-9.tmux for new style default path)
+unbind '"'
+unbind %
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+
+# Vim style pane movement
+bind C-h select-pane -L
+bind C-j select-pane -D
+bind C-k select-pane -U
+bind C-l select-pane -R
+
+# Move windows while holding control
+bind C-p previous-window
+bind C-n next-window
+
+# Pane re-sizing
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+unbind L
+bind -r L resize-pane -R 5
+
+# Copy mode holding ctrl
+bind C-[ copy-mode
+
+# Custom key bindings                                            {{{1
+# ------------------------------------------------------------------
+
+# Reload the tmux config
+bind r source-file ~/.tmux.conf \; display "tmux config reloaded!"
+
+# Plugin: tmux-resurrect                                        {{{1
+# ------------------------------------------------------------------
+
+# https://github.com/tmux-plugins/tmux-resurrect
+run-shell ~/dotfiles/tmux/resurrect/resurrect.tmux
+
+# Status Line                                                   {{{1
+# ------------------------------------------------------------------
+
+# Some tweaks to the status line
+set -g status-right "%H:%M"
+set -g window-status-current-style "underscore"
+
+# turn on folds
+# vim: fdm=marker
