@@ -44,13 +44,13 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " =============================================================
 " vim-plug
-call plug#begin('~/.vim/plugged')
+"  call plug#begin('~/.vim/plugged')
 
 " If you don't have nodejs and yarn
 " use pre build
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " If you have nodejs and yarn
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
-call plug#end()
+" call plug#end()
