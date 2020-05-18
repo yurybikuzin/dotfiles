@@ -4,3 +4,21 @@
 [submodule "vim/pack/plugins/start/tcomment"]
 	path = vim/pack/plugins/start/tcomment
 	url = https://github.com/tomtom/tcomment_vim
+[submodule "vim/pack/plugins/start/vim-airline"]
+	path = vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "tmux/resurrect"]
+	path = tmux/resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "vim/pack/plugins/start/vim-racer"]
+	path = vim/pack/plugins/start/vim-racer
+	url = https://github.com/racer-rust/vim-racer
+[submodule "vim/pack/plugins/start/rust_vim"]
+	path = vim/pack/plugins/start/rust_vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/pack/plugins/start/tagbar"]
+	path = vim/pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "vim/pack/plugins/start/vim-markdown"]
+	path = vim/pack/plugins/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
