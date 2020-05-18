@@ -30,8 +30,9 @@ setw -gq utf8 on
 
 # Change the default $TERM to tmux-256color
 # set -g default-terminal "tmux-256color"
-set -g default-terminal "tmux-256color"
-set -ga terminal-overrides ",*256col*:Tc"
+# set -g default-terminal "tmux-256color"
+# set -g default-terminal "xterm-256color"
+# set -ga terminal-overrides ",*256col*:Tc"
 
 # No bells at all
 set -g bell-action none
@@ -46,7 +47,7 @@ unbind C-b
 bind C-a send-prefix
 
 # Set the proper terminal type
-set -g default-terminal "tmux"
+# set -g default-terminal "tmux"
 
 # Set the delay so that it doesn't interfere with applications like
 # vim
