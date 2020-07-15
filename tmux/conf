@@ -84,8 +84,21 @@ bind y set synchronize-panes\; display 'synchronize-panes #{?synchronize-panes,o
 set-window-option -g mode-keys vi
 
 # copy to clipboard: https://sanctum.geek.nz/arabesque/vi-mode-in-tmux/
-bind-key -T copy-mode-vi 'v' send -X begin-selection
-bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # https://stackoverflow.com/a/45380960, see comment of blurrcat; run `brew install reattach-to-user-namespace` first
+# bind-key -T copy-mode-vi 'v' send -X begin-selection
+
+# https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting-ubuntu/
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+# https://coderwall.com/p/4b0d0a/how-to-copy-and-paste-with-tmux-on-ubuntu
+# bind -t vi-copy y copy-pipe "xclip -sel clip -i"
+
+# https://unix.stackexchange.com/questions/484899/ubuntu-18-tmux-2-6-3-copy-paste-functionality-with-xclip-non-functional
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -sel clip -i"
+
+# bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # https://stackoverflow.com/a/45380960, see comment of blurrcat; run `brew install reattach-to-user-namespace` first
+
 
 # Easier window controls                                        {{{2
 # ------------------------------------------------------------------

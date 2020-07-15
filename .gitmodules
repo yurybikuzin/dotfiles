@@ -22,3 +22,42 @@
 [submodule "vim/pack/plugins/start/tcomment"]
 	path = vim/pack/plugins/start/tcomment
 	url = https://github.com/tomtom/tcomment_vim
+[submodule "vim/pack/plugins/start/nerdtree"]
+	path = vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "vim/pack/plugins/start/nerdtree-git-plugin"]
+	path = vim/pack/plugins/start/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "vim/pack/plugins/start/vim-windowswap"]
+	path = vim/pack/plugins/start/vim-windowswap
+	url = https://github.com/wesQ3/vim-windowswap.git
+[submodule "vim/pack/plugins/start/vim-session"]
+	path = vim/pack/plugins/start/vim-session
+	url = https://github.com/xolox/vim-session
+[submodule "vim/pack/plugins/start/vim-misc"]
+	path = vim/pack/plugins/start/vim-misc
+	url = https://github.com/xolox/vim-misc
+[submodule "vim/pack/plugins/start/vim-buffergator"]
+	path = vim/pack/plugins/start/vim-buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator
+[submodule "vim/pack/plugins/start/vim-markdown-toc"]
+	path = vim/pack/plugins/start/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "vim/pack/plugins/start/racer"]
+	path = vim/pack/plugins/start/racer
+	url = https://github.com/phildawes/racer
+[submodule "vim/pack/plugins/start/vim-fugitive"]
+	path = vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/plugins/start/vim-repeat"]
+	path = vim/pack/plugins/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "vim/pack/plugins/start/vim-mysql-plugin"]
+	path = vim/pack/plugins/start/vim-mysql-plugin
+	url = https://github.com/kezhenxu94/vim-mysql-plugin
+[submodule "vim/pack/plugins/start/typescript-vim"]
+	path = vim/pack/plugins/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule "vim/pack/plugins/start/ZoomWin"]
+	path = vim/pack/plugins/start/ZoomWin
+	url = https://github.com/itspriddle/ZoomWin

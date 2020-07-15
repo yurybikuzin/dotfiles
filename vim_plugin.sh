@@ -46,7 +46,7 @@ elif [[ $CMD == "help" ]]; then
     echo "   $0 dir"
     echo "       prints PLUGINS_DIR"
 elif [[ $CMD == "" ]]; then
-    echo ERROR: "$0" expects CMD
+    echo ERROR: "$0" expects CMD, e.g. 'help'
     exit 1
 else
     echo ERROR: unexpectd CMD"'$CMD'"

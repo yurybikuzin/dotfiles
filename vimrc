@@ -1,4 +1,8 @@
-set clipboard=unnamed
+" https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
+set clipboard=unnamedplus
+
+set mouse=a
+
 filetype plugin indent on
 syntax on
 colorscheme monokai
@@ -8,6 +12,7 @@ set tabstop=4 shiftwidth=4 expandtab
 
 set encoding=utf-8
 set fileencoding=utf-8
+let mapleader=","
 
 " " Enable true color: https://github.com/tmux/tmux/issues/1246
 " if exists('+termguicolors')
@@ -43,14 +48,25 @@ au FileType rust nmap gt <Plug>(rust-def-tab)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " =============================================================
-" vim-plug
-"  call plug#begin('~/.vim/plugged')
+" SaveSession
+let g:session_autosave='no'
 
-" If you don't have nodejs and yarn
-" use pre build
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+" =============================================================
+" https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
 
-" If you have nodejs and yarn
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-" call plug#end()
+" =============================================================
+" https://github.com/racer-rust/vim-racer
+" Example Mappings
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+augroup END
