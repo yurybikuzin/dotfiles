@@ -8,6 +8,10 @@
 # zj    move down to start of next fold
 # zk    move up to end of previous fold
 
+set -g focus-events
+bind -T copy-mode M-w send -X copy-pipe "reattach-to-user-namespace pbcopy" \; display-message "copied to system clipboard"
+
+
 # General tmux settings                                         {{{1
 # ------------------------------------------------------------------
 
@@ -88,14 +92,23 @@ set-window-option -g mode-keys vi
 
 # https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting-ubuntu/
 bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-selection
-bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+# bind-key -T copy-mode-vi y send-keys -X copy-selection
+ 
+# https://www.joshmcarthur.com/til/2019/06/04/tmux-system-clipboard-copy-paste-on-mac-os.html
+# FOLLOWING LINE WORKS on MaxOS
+# bind-key -T copy-mode-vi y send-keys -X copy-pipe "reattach-to-user-namespace pbcopy"
+
+# bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
 # https://coderwall.com/p/4b0d0a/how-to-copy-and-paste-with-tmux-on-ubuntu
 # bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 # https://unix.stackexchange.com/questions/484899/ubuntu-18-tmux-2-6-3-copy-paste-functionality-with-xclip-non-functional
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -sel clip -i"
+# bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -sel clip -i"
+# bind-key -T copy-mode M-w send-keys -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
+
+# https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting-ubuntu/
+# bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 # bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # https://stackoverflow.com/a/45380960, see comment of blurrcat; run `brew install reattach-to-user-namespace` first
 
@@ -127,6 +140,9 @@ bind -r K resize-pane -U 5
 unbind L
 bind -r L resize-pane -R 5
 
+# https://gist.github.com/suewonjp/171bc15bd81f434df3397140015c8eee
+bind @ respawn-pane -k
+
 # Copy mode holding ctrl
 bind C-[ copy-mode
 
@@ -149,5 +165,27 @@ run-shell ~/dotfiles/tmux/resurrect/resurrect.tmux
 set -g status-right "%H:%M"
 set -g window-status-current-style "underscore"
 
+# https://gist.github.com/suewonjp/171bc15bd81f434df3397140015c8eee {{{1
+# ------------------------------------------------------------------
+
+# To prevent some garbage characters from being printed to screen after copying or selecting something
+# See https://www.reddit.com/r/tmux/comments/2xgrf8/garbage_characters_printed_to_screen_after_a/
+set -g set-clipboard off
+setw -g mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane on
+#set -g mouse-select-window on
+ 
+# set color of active pane
+if-shell -b '[ `echo "$(tmux -V | grep -o "[2-9]\.[0-9]\+") >= 2.8" | bc` -eq 1 ]' \
+    'set -g pane-border-style bg=black,fg=white; set -g pane-active-border-style bg=black,fg=green' \
+    'set -g pane-border-fg colour235; set -g pane-border-bg black; set -g pane-active-border-fg green; set -g pane-active-border-bg black'
+
+if-shell 'uname | grep -q Darwin' \
+    'source-file ~/.tmux.conf.osx' \
+'if-shell "uname | grep -q CYGWIN" \
+    "source-file ~/.tmux.conf.cygwin" \
+    "source-file ~/.tmux.conf.linux"'
 # turn on folds
 # vim: fdm=marker
+

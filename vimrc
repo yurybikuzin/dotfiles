@@ -1,5 +1,10 @@
+" https://stackoverflow.com/questions/17561706/vim-yank-does-not-seem-to-work/39313208#39313208
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
 " https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
-set clipboard=unnamedplus
+  set clipboard=unnamedplus "Linux
+endif
 
 set mouse=a
 

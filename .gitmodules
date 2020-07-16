@@ -61,3 +61,9 @@
 [submodule "vim/pack/plugins/start/ZoomWin"]
 	path = vim/pack/plugins/start/ZoomWin
 	url = https://github.com/itspriddle/ZoomWin
+[submodule "vim/pack/plugins/start/vim-tmux-focus-events"]
+	path = vim/pack/plugins/start/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events
+[submodule "vim/pack/plugins/start/vim-tmux-clipboard"]
+	path = vim/pack/plugins/start/vim-tmux-clipboard
+	url = https://github.com/roxma/vim-tmux-clipboard
