@@ -2,6 +2,15 @@
 
 ## Use
 
+### On guest 
+```
+pushd ~
+git clone --recursive -j8 https://github.com/yurybikuzin/dotfiles.git
+dotfiles/init.sh
+popd
+```
+
+### On host 
 ```
 pushd ~
 git clone --recursive -j8 git@github.com:yurybikuzin/dotfiles.git
