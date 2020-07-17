@@ -4,4 +4,5 @@
 alias tmux='tmux -u'
 TERM=screen-256color
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
+set -o vi
+export EDITOR=vim
