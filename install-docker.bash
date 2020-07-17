@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 # https://docs.docker.com/engine/install/ubuntu/
 sudo apt-get update
 sudo apt-get install -y \
