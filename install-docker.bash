@@ -24,6 +24,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
+sudo apt autoremove -y
+
 # Post installation steps for Linux
 # https://docs.docker.com/engine/install/linux-postinstall/
 sudo groupadd docker
