@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ln ~/dotfiles/tmux/conf ~/.tmux.conf
 ln ~/dotfiles/tmux/conf.linux ~/.tmux.conf.linux
 ln ~/dotfiles/tmux/conf.osx ~/.tmux.conf.osx
