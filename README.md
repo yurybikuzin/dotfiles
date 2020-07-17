@@ -1,6 +1,6 @@
 # Dotfiles
 
-## Clone rep
+## Use
 
 ```
 pushd ~
