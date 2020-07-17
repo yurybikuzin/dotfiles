@@ -2,7 +2,7 @@
 # source $HOME/dotfiles/bashrc
 
 alias tmux='tmux -u'
-TERM=screen-256color
+export TERM=screen-256color
 set -o vi
 export EDITOR=vim
 
@@ -11,7 +11,7 @@ if [[ -z $TMUX && -n $SSH_TTY ]]; then
     me=$(whoami)
     real_tmux=$(command -v tmux)
 
-    if [ -z $real_tmux ]; then
+    if [[ -z $real_tmux ]]; then
         echo "No tmux installed."
     fi
 
