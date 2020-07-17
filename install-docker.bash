@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # https://docs.docker.com/engine/install/ubuntu/
 sudo apt-get update
 sudo apt-get install -y \
@@ -15,16 +17,16 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-
-# Post installation steps for Linux
-# https://docs.docker.com/engine/install/linux-postinstall/
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker 
 docker run hello-world
 
 # https://docs.docker.com/compose/install/
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
+
+# Post installation steps for Linux
+# https://docs.docker.com/engine/install/linux-postinstall/
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker 
 
