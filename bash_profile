@@ -1,7 +1,7 @@
 # ADD following line to ~/.bashrc
 # source $HOME/dotfiles/bashrc
 
-alias tmux='tmux -u'
+# alias tmux='tmux -u'
 export TERM=screen-256color
 set -o vi
 export EDITOR=vim
