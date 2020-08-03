@@ -79,3 +79,11 @@ augroup Racer
     autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
     autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
 augroup END
+
+" =============================================================
+let color_path = expand('~/.vim/colors/color.vim')
+if filereadable(color_path)
+    exec 'source' color_path
+else
+    colorscheme monokai
+endif
