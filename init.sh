@@ -1,29 +1,40 @@
 #!/usr/bin/env bash
 
-if [[ -e ~/.tmux.conf ]]; then
-    mv ~/.tmux.conf ~/.tmux.conf.bak
-fi
-ln -s ~/dotfiles/tmux/conf ~/.tmux.conf
+_prepare_for_ln() {
+    local target=$1
+    if [[ -e "$target" ]]; then
+        if [[ -L "$target" ]]; then
+            rm "$target"
+        else
+            mv "$target" "$target.bak"
+        fi
+    fi
+}
+target=~/.tmux.conf
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/tmux/conf "$target"
 
-if [[ -e ~/.vimrc ]]; then
-    mv ~/.vimrc ~/.vimrc.bak
-fi
-ln -s ~/dotfiles/vimrc ~/.vimrc
+target=~/.vimrc
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/vimrc "$target"
 
-if [[ -e ~/.vim ]]; then
-    mv ~/.vim ~/.vim.bak
-fi
-ln -s ~/dotfiles/vim ~/.vim
+target=~/.vim
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/vim "$target"
 
-if [[ -e ~/.alacritty.yml ]]; then
-    mv ~/.alacritty.yml ~/.alacritty.yml.bak
-fi
+target=~/.alacritty.yml
+_prepare_for_ln "$target"
 ln -s ~/dotfiles/alacritty.yml ~/.alacritty.yml
 
-# shellcheck disable=SC2016
-# echo 'source $HOME/dotfiles/bash_profile' >> ~/.bash_profile
 
-target=~/.bash_profile
-exactLine='source $HOME/dotfiles/bash_profile'
-grep -qxF "$exactLine" "$target" || echo "$exactLine" >> "$target"
+_add_once() {
+    local target="$1"
+    local exactLine="$2"
+    if [[ ! -e "$target" ]]; then
+        touch "$target"
+    fi
+    grep -qxF "$exactLine" "$target" || echo "$exactLine" >> "$target"
+}
+_add_once ~/.bash_profile 'source $HOME/dotfiles/bash_profile'
+_add_once ~/.bashrc 'source $HOME/dotfiles/bashrc'
 

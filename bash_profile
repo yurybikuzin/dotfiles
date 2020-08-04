@@ -1,10 +1,9 @@
-# ADD following line to ~/.bashrc
-# source $HOME/dotfiles/bashrc
+# ADD following line to ~/.bash_profile
+# source $HOME/dotfiles/bash_profile
 
-# alias tmux='tmux -u'
-export TERM=screen-256color
-set -o vi
-export EDITOR=vim
+if [ -f ~/dotfiles/bashrc ]; then
+	. ~/dotfiles/bashrc
+fi
 
 # https://the-bosha.ru/2016/05/30/tmux-avtozapusk-pri-podkliuchenii-po-ssh/
 if [[ -z $TMUX && -n $SSH_TTY ]]; then
@@ -25,3 +24,9 @@ if [[ -z $TMUX && -n $SSH_TTY ]]; then
         fi
     fi
 fi
+ 
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+

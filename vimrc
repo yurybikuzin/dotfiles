@@ -87,3 +87,7 @@ if filereadable(color_path)
 else
     colorscheme monokai
 endif
+
+" =============================================================
+
+au BufNewFile,BufRead ssh_config,*/.ssh/* setf sshconfig
