@@ -26,7 +26,6 @@ target=~/.alacritty.yml
 _prepare_for_ln "$target"
 ln -s ~/dotfiles/alacritty.yml ~/.alacritty.yml
 
-
 _add_once() {
     local target="$1"
     local exactLine="$2"
