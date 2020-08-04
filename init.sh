@@ -24,13 +24,14 @@ ln -s ~/dotfiles/vim "$target"
 
 target=~/.alacritty.yml
 _prepare_for_ln "$target"
-ln -s ~/dotfiles/alacritty.yml ~/.alacritty.yml
+ln -s ~/dotfiles/alacritty.yml "$target"
 
 _add_once() {
     local target="$1"
     local exactLine="$2"
     if [[ ! -e "$target" ]]; then
         touch "$target"
+        echo "touched '$target'"
     fi
     grep -qxF "$exactLine" "$target" || echo "$exactLine" >> "$target"
 }
