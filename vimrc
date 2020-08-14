@@ -7,6 +7,8 @@ else
 endif
 
 set mouse=a
+" https://wiki.archlinux.org/index.php/Alacritty_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+" ttymouse=sgr
 
 filetype plugin indent on
 syntax on

@@ -1,8 +1,70 @@
+# https://gist.github.com/Cogitri/e8d5c63818443f3c8f13cd7760fe77aa
+live_config_reload: true
+# shell:
+#   program: /bin/bash
+env:
+  TERM: xterm-256color
+  # https://github.com/alacritty/alacritty/issues/1064
+  LC_ALL: "ru_RU.UTF-8"
+window:
+  padding:
+    x: 6
+    y: 6
+  # Window class (Linux/BSD only):
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
 font:
-    size: 11
+  size: 14.5
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  # offset:
+  #   x: 1
+  #   y: 1
 selection:
-    save_to_clipboard: true
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: true
 # Colors (Oxide)
+draw_bold_text_with_bright_colors: true
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+background_opacity: 0.965
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  url:
+    launcher: open
+    # launcher: xdg-open
+    #modifiers: Control|Shift
+key_bindings:
+  # https://wiki.archlinux.org/index.php/Alacritty_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+    # (Windows, Linux, and BSD only)
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Add,      mods: Control,       action: IncreaseFontSize }
+  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: W,         mods: Command, chars: ""                       }
+  - { key: Q,         mods: Command, chars: ""                       }
+  - { key: Tab,         mods: Command, chars: ""                       }
+
+  - { key: Paste,                    action: Paste                            }
+  - { key: Copy,                     action: Copy                             }
+  - { key: L,         mods: Control, action: ClearLogNotice                   }
+  - { key: L,         mods: Control, chars: "\x0c"                            }
+  - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+  - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 colors:
   # Default colors
   primary:
