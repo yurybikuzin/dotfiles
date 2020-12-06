@@ -55,6 +55,7 @@ key_bindings:
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
   - { key: W,         mods: Command, chars: ""                       }
   - { key: Q,         mods: Command, chars: ""                       }
+  - { key: H,         mods: Command, chars: ""                       }
   - { key: Tab,         mods: Command, chars: ""                       }
 
   - { key: Paste,                    action: Paste                            }
