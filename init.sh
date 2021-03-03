@@ -48,7 +48,7 @@ ln -s ~/dotfiles/nvim/site "$target"
 
 target=~/.config/nvim/plugged
 _prepare_for_ln "$target"
-ln -s ~/dotfiles/nvim/plugged "$target"
+# ln -s ~/dotfiles/nvim/plugged "$target"
 
 _add_once() {
     local target="$1"
