@@ -46,7 +46,7 @@ target=~/.local/share/nvim/site
 _prepare_for_ln "$target"
 ln -s ~/dotfiles/nvim/site "$target"
 
-target=~/.config/nvim/plugged/
+target=~/.config/nvim/plugged
 _prepare_for_ln "$target"
 ln -s ~/dotfiles/nvim/plugged "$target"
 
