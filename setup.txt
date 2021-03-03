@@ -1,0 +1,64 @@
+ls -s ~/Загрузки ~/Downloads
+
+https://www.google.com/chrome/
+sudo dpkg -i chrome ~/Downloads/google-chrome-stable_current_amd64.deb
+
+sudo apt install -y git
+
+git clone https://github.com/yurybikuzin/yb.git
+TODO: install.sh (add Include yb/config into ~/.ssh/config)
+
+sudo apt install -y curl
+https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package
+mkdir -p ~/.local/bin
+ ln -s ~/nvim.appimage ~/.local/bin/nvim
+ ln -s ~/nvim.appimage ~/.local/bin/vim
+
+http://docs.google.com/document/u/1/d/1O8m9dn20bLpGRfVj3EFaGdsudo%20ln%20-s%20nvim.appimage%20/usr/local/bin/nvimq2pW0SI3wW9ZM9AaJ4i_0/edit?ouid=111382145937298799925&usp=docs_home&ths=true
+
+https://github.com/yurybikuzin/dotfiles
+
+https://ubuntuhandbook.org/index.php/2020/12/install-alacritty-ppa-ubuntu-20-04/
+
+https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc/365701#830343
+
+https://askubuntu.com/questions/1030418/how-to-change-text-entry-in-ubuntu-18-04/1030433#1030433, see gnome-tweaks
+
+https://code.visualstudio.com/docs/?dv=linux64_deb
+sudo dpkg -i ~/Downloads/code_1.53.2-1613044664_amd64.deb
+https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
+
+https://www.rust-lang.org/tools/install
+https://doc.rust-lang.org/edition-guide/rust-2018/platform-and-target-support/musl-support-for-fully-static-binaries.html
+sudo apt install -y musl-tools
+https://ostechnix.com/how-to-fix-rust-error-linker-cc-not-found-on-linux/
+https://github.com/sharkdp/fd#on-ubuntu
+
+sudo apt install -y tmux
+
+https://snapcraft.io/install/rocketchat-desktop/ubuntu
+
+https://help.ubuntu.com/stable/ubuntu-help/session-language.html.en
+
+https://dev.to/vshl/my-neovim-setup-31n3
+https://medium.com/better-programming/setting-up-neovim-for-web-development-in-2020-d800de3efacd
+
+https://sharksforarms.dev/posts/neovim-rust/
+https://github.com/neovim/neovim.git
+https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites
+https://github.com/neovim/neovim/wiki/Building-Neovim#building
+https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary
+
+// https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/
+// https://www.configserverfirewall.com/ubuntu-linux/ubuntu-install-mysql-client/
+sudo snap install datagrip --classic
+
+https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+https://github.com/neovim/neovim/issues/13921#issuecomment-783126505
+
+https://github.com/ggreer/the_silver_searcher
+
+https://github.com/alx741/vim-rustfmt
+
+https://linuxize.com/post/how-to-install-postman-on-ubuntu-20-04/
+

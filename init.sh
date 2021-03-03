@@ -16,15 +16,39 @@ ln -s ~/dotfiles/tmux/conf "$target"
 
 target=~/.vimrc
 _prepare_for_ln "$target"
-ln -s ~/dotfiles/vimrc "$target"
-
+# ln -s ~/dotfiles/vimrc "$target"
+#
 target=~/.vim
 _prepare_for_ln "$target"
-ln -s ~/dotfiles/vim "$target"
+# ln -s ~/dotfiles/vim "$target"
 
 target=~/.alacritty.yml
 _prepare_for_ln "$target"
 ln -s ~/dotfiles/alacritty.yml "$target"
+
+target=~/.config/nvim/init.vim
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/nvim/init.vim "$target"
+
+target=~/.local/bin/fd
+_prepare_for_ln "$target"
+ln -s "$(which fdfind)" "$target"
+
+target=~/.local/bin/rust-analyzer
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/rust-analyzer "$target"
+
+target=~/.local/bin/vim
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/nvim/bin/nvim "$target"
+
+target=~/.local/share/nvim/site
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/nvim/site "$target"
+
+target=~/.config/nvim/plugged/
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/nvim/plugged "$target"
 
 _add_once() {
     local target="$1"

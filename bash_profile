@@ -5,6 +5,7 @@ if [ -f ~/dotfiles/bashrc ]; then
 	. ~/dotfiles/bashrc
 fi
 
+
 # https://the-bosha.ru/2016/05/30/tmux-avtozapusk-pri-podkliuchenii-po-ssh/
 if [[ -z $TMUX && -n $SSH_TTY ]]; then
     me=$(whoami)
