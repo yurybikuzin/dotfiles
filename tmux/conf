@@ -85,14 +85,15 @@ bind m set monitor-activity
 bind y set synchronize-panes\; display 'synchronize-panes #{?synchronize-panes,on,off}'
 
 # use vi key bindings
-# set-window-option -g mode-keys vi
+set-window-option -g mode-keys vi
 
 # copy to clipboard: https://sanctum.geek.nz/arabesque/vi-mode-in-tmux/
 # bind-key -T copy-mode-vi 'v' send -X begin-selection
 
 # https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting-ubuntu/
-# bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi v send-keys -X begin-selection
 # bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
  
 # https://www.joshmcarthur.com/til/2019/06/04/tmux-system-clipboard-copy-paste-on-mac-os.html
 # FOLLOWING LINE WORKS on MaxOS
@@ -162,7 +163,9 @@ bind r source-file ~/.tmux.conf \; display "tmux config reloaded!"
 
 # https://github.com/tmux-plugins/tmux-resurrect
 run-shell ~/dotfiles/tmux/resurrect/resurrect.tmux
-run-shell ~/dotfiles/tmux/yank/yank.tmux
+# run-shell ~/dotfiles/tmux/yank/yank.tmux
+# set-window-option -g mode-keys vi
+# bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
 
 # Status Line                                                   {{{1
 # ------------------------------------------------------------------

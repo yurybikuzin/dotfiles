@@ -26,6 +26,7 @@ target=~/.alacritty.yml
 _prepare_for_ln "$target"
 ln -s ~/dotfiles/alacritty.yml "$target"
 
+mkdir -p ~/.config/nvim
 target=~/.config/nvim/init.vim
 _prepare_for_ln "$target"
 ln -s ~/dotfiles/nvim/init.vim "$target"
@@ -49,6 +50,10 @@ ln -s ~/dotfiles/nvim/site "$target"
 target=~/.config/nvim/plugged
 _prepare_for_ln "$target"
 # ln -s ~/dotfiles/nvim/plugged "$target"
+
+target=~/.config/rustfmt
+_prepare_for_ln "$target"
+ln -s ~/dotfiles/rustfmt "$target"
 
 _add_once() {
     local target="$1"
