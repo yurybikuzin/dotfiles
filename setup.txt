@@ -62,3 +62,4 @@ https://github.com/alx741/vim-rustfmt
 
 https://linuxize.com/post/how-to-install-postman-on-ubuntu-20-04/
 
+Решение автоподключения VPN: https://askubuntu.com/a/1272950
