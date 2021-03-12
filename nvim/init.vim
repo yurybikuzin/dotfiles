@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim'
 
 Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons' " https://vi.stackexchange.com/questions/22880/vim-devicons-not-working-at-all
+Plug 'ryanoasis/vim-devicons' " https://vi.stackexchange.com/questions/22880/vim-devicons-not-working-at-all/22885#22885
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
