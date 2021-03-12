@@ -23,6 +23,7 @@ Plug 'xolox/vim-session'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'alx741/vim-rustfmt'
+Plug 'mhinz/vim-crates'
 
 call plug#end()
 " :PlugInstall to install plugins
