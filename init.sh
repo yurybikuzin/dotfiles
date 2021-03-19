@@ -67,3 +67,6 @@ _add_once() {
 _add_once ~/.bash_profile 'source $HOME/dotfiles/bash_profile'
 _add_once ~/.bashrc 'source $HOME/dotfiles/bashrc'
 
+# https://romanvbabenko.blogspot.com/2008/09/git.html
+dir=$(dirname "$0")
+"$dir/git_alias.sh"
