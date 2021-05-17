@@ -25,6 +25,21 @@ Plug 'tomtom/tcomment_vim'
 Plug 'alx741/vim-rustfmt'
 Plug 'mhinz/vim-crates'
 
+" https://github.com/ziglang/zig.vim
+" Plug 'ziglang/zig.vim'
+
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release --locked
+    else
+      !cargo build --release --locked --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
 call plug#end()
 " :PlugInstall to install plugins
 " or nvim +PlugInstall from command line
