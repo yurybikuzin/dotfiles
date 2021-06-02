@@ -40,6 +40,9 @@ endfunction
 
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
+" https://github.com/chr4/nginx.vim
+Plug 'chr4/nginx.vim'
+
 call plug#end()
 " :PlugInstall to install plugins
 " or nvim +PlugInstall from command line
@@ -248,3 +251,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " https://stackoverflow.com/questions/65350712/what-is-set-mouse-a-for-in-nvim/65352148#65352148
 set mouse=a
+
+" https://serverfault.com/questions/390757/how-to-set-vim-filetype-when-editing-nginx-config-files/
+au BufRead,BufNewFile include.conf set syntax=nginx ft=nginx
+
