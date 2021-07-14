@@ -255,3 +255,6 @@ set mouse=a
 " https://serverfault.com/questions/390757/how-to-set-vim-filetype-when-editing-nginx-config-files/
 au BufRead,BufNewFile include.conf set syntax=nginx ft=nginx
 
+if has('nvim')
+  autocmd BufRead Cargo.toml call crates#toggle()
+endif
