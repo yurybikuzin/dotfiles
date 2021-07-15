@@ -109,7 +109,7 @@ key_bindings:
   - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 font:
-  size: 10.0
+  size: 11.0
 # -- colors
 # Colors (Oxide)
 colors:
