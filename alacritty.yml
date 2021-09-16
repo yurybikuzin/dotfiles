@@ -7,6 +7,7 @@ env:
   # https://github.com/alacritty/alacritty/issues/1064
   LC_ALL: "ru_RU.UTF-8"
 window:
+  opacity: 0.965
   padding:
     x: 6
     y: 6
@@ -27,7 +28,6 @@ draw_bold_text_with_bright_colors: true
 bell:
   animation: EaseOutExpo
   duration: 0
-background_opacity: 0.965
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 mouse:
