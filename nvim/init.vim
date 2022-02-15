@@ -43,6 +43,9 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 " https://github.com/chr4/nginx.vim
 Plug 'chr4/nginx.vim'
 
+" https://github.com/cespare/vim-toml
+Plug 'cespare/vim-toml', { 'branch': 'main' }
+
 call plug#end()
 " :PlugInstall to install plugins
 " or nvim +PlugInstall from command line
