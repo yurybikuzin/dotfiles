@@ -25,6 +25,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'alx741/vim-rustfmt'
 Plug 'mhinz/vim-crates'
 
+Plug 'tpope/vim-abolish'
+
 " https://github.com/ziglang/zig.vim
 " Plug 'ziglang/zig.vim'
 
