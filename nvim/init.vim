@@ -1,15 +1,18 @@
+set encoding=UTF-8
 " https://medium.com/better-programming/setting-up-neovim-for-web-development-in-2020-d800de3efacd
 call plug#begin('~/.config/nvim/plugged')
+
 Plug 'dracula/vim'
 
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons' " https://vi.stackexchange.com/questions/22880/vim-devicons-not-working-at-all/22885#22885
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 
 " https://sharksforarms.dev/posts/neovim-rust/
 " Collection of common configurations for the Nvim LSP client
+" Plug "williamboman/nvim-lsp-installer" " https://github.com/williamboman/nvim-lsp-installer
 Plug 'neovim/nvim-lspconfig'
 " Extensions to built-in LSP, for example, providing type inlay hints
 Plug 'nvim-lua/lsp_extensions.nvim'
@@ -17,8 +20,8 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'nvim-lua/completion-nvim'
 
 "" Vim-Session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-session'
 
 Plug 'tomtom/tcomment_vim'
 
@@ -51,6 +54,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 call plug#end()
 " :PlugInstall to install plugins
 " or nvim +PlugInstall from command line
+"
 
 if (has("termguicolors"))
   set termguicolors
@@ -109,29 +113,31 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
 " Configure LSP
+lua require'lspconfig'.rust_analyzer.setup({})
+
 " https://github.com/neovim/nvim-lspconfig#rust_analyzer
-lua <<EOF
-
--- nvim_lsp object
-local nvim_lsp = require'lspconfig'
-
--- function to attach completion when setting up lsp
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-end
-
--- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
-
--- Enable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = true,
-  }
-)
-EOF
+" lua <<EOF
+"
+" -- nvim_lsp object
+" local nvim_lsp = require'lspconfig'
+"
+" -- function to attach completion when setting up lsp
+" local on_attach = function(client)
+"     require'completion'.on_attach(client)
+" end
+"
+" -- Enable rust_analyzer
+" nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+"
+" -- Enable diagnostics
+" vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+"   vim.lsp.diagnostic.on_publish_diagnostics, {
+"     virtual_text = true,
+"     signs = true,
+"     update_in_insert = true,
+"   }
+" )
+" EOF
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -159,6 +165,8 @@ nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 set updatetime=300
 " Show diagnostic popup on cursor hold
 " autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+" # ------ did try to fix deprecated warning of above line:
+" autocmd CursorHold * lua vim.diagnostic.open_float()
 
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
@@ -169,8 +177,8 @@ nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 set signcolumn=yes
 
 " Enable type inlay hints
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-\ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
+"autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+"\ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
 " <<<
  
@@ -209,14 +217,14 @@ set nobackup
 set noswapfile
 
 " session management
-let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
+"let g:session_directory = "~/.config/nvim/session"
+"let g:session_autoload = "no"
+"let g:session_autosave = "no"
+"let g:session_command_aliases = 1
+"nnoremap <leader>so :OpenSession<Space>
+"nnoremap <leader>ss :SaveSession<Space>
+"nnoremap <leader>sd :DeleteSession<CR>
+"nnoremap <leader>sc :CloseSession<CR>
 
 "" Visual Settings
 syntax on
@@ -263,3 +271,9 @@ au BufRead,BufNewFile include.conf set syntax=nginx ft=nginx
 if has('nvim')
   autocmd BufRead Cargo.toml call crates#toggle()
 endif
+
+" https://neovim.discourse.group/t/avoid-navigating-in-show-line-diagnostics-window/605
+" autocmd CursorHold <buffer> lua vim.diagnostic.show_line_diagnostics({ focusable = false })
+" vim.cmd("autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })")
+" nmap <leader>ln  <cmd>lua vim.diagnostic.goto_next({enable_popup= false})<CR>
+" nmap <leader>ln  <cmd>lua vim.diagnostic.close()<CR>
