@@ -51,6 +51,12 @@ Plug 'chr4/nginx.vim'
 " https://github.com/cespare/vim-toml
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 
+" https://github.com/hail2u/vim-css3-syntax
+Plug 'hail2u/vim-css3-syntax'
+" https://github.com/cakebaker/scss-syntax.vim
+Plug 'cakebaker/scss-syntax.vim'
+
+
 call plug#end()
 " :PlugInstall to install plugins
 " or nvim +PlugInstall from command line
