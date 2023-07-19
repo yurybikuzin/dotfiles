@@ -26,6 +26,14 @@ target=~/.alacritty.yml
 _prepare_for_ln "$target"
 ln -s ~/dotfiles/alacritty.yml "$target"
 
+
+# https://github.com/rust-lang/cargo/issues/2078
+mkdir -p ~/.cargo/
+target=~/.cargo/config
+if [[ ! -e ~/.cargo/config ]]; then
+    ln -s ~/dotfiles/.cargo/config "$target"
+fi
+
 mkdir -p ~/.config/nvim
 target=~/.config/nvim/init.vim
 _prepare_for_ln "$target"

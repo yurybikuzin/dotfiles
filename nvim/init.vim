@@ -51,6 +51,11 @@ Plug 'chr4/nginx.vim'
 " https://github.com/cespare/vim-toml
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 
+" https://github.com/hail2u/vim-css3-syntax
+Plug 'hail2u/vim-css3-syntax'
+" https://github.com/cakebaker/scss-syntax.vim
+Plug 'cakebaker/scss-syntax.vim'
+
 " https://github.com/evanleck/vim-svelte
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
