@@ -51,6 +51,11 @@ Plug 'chr4/nginx.vim'
 " https://github.com/cespare/vim-toml
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 
+" https://github.com/evanleck/vim-svelte
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
 call plug#end()
 " :PlugInstall to install plugins
 " or nvim +PlugInstall from command line
@@ -277,3 +282,7 @@ endif
 " vim.cmd("autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })")
 " nmap <leader>ln  <cmd>lua vim.diagnostic.goto_next({enable_popup= false})<CR>
 " nmap <leader>ln  <cmd>lua vim.diagnostic.close()<CR>
+
+" https://stackoverflow.com/questions/64943643/make-vim-ignore-syntax-highlight-only-for-long-lines
+" set re=0
+
