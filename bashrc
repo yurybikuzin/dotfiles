@@ -6,5 +6,6 @@ export EDITOR=vim
 setxkbmap -option caps:escape
 export PATH=$PATH:~/.local/bin
 
+source ~/dotfiles/hoard.bash
 # https://reinhard.codes/2015/06/24/disabling-the-thinkpad-trackpoint-in-ubuntu/
 # xinput disable "TPPS/2 Elan TrackPoint"
